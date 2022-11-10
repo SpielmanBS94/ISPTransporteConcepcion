@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-MLNL72A.DW_concepcion.briansp"
+  DTS:DTSID="{33F52F40-6636-48A4-AC35-A1580AA17950}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=DESKTOP-MLNL72A;User ID=briansp;Initial Catalog=DW_concepcion;Persist Security Info=True;Application Name=SSIS-ISPTransporteConcepcion-{33F52F40-6636-48A4-AC35-A1580AA17950}DESKTOP-MLNL72A.DW_concepcion.briansp;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAol/nszeqgECgoIwsOFQzuwAAAAACAAAAAAAQZgAAAAEAACAAAAAy9C3CT5GFg6xjNRNXnb7PgXlAK1eQsRLicIcGLiiHPQAAAAAOgAAAAAIAACAAAAADIgjrouVR2DTBZMTTtr+2XSoPwTbscE8paTN+l2dCjYAAAAD2pC2TP9lix5w6Yeo6bZxSczKeMnzpmDGpQBHM19ZrMTPPIQ3E7/+mBX/DVcKRJnLlH2EYe+gJociXjTlg4uMorrFu+3ohJVzsag2PZCJEJTL5RhRgtQcM6mvH7Fuaonlc6K12xuZH7WgNe2zQB89bABvHyfmYRgfNRuWv3FYBkkAAAABCuJ1TZLmQdgh/xIFEDUdVJ68reDOE/JEhNX9mqRfojrUClNSNtpGG30ShnYXs30turNxn/Xez27Uxq7BysMRZ</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

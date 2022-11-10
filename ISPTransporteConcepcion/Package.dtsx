@@ -1,0 +1,1857 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/9/2022 11:53:47 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-MLNL72A"
+  DTS:CreatorName="DESKTOP-MLNL72A\Spiel"
+  DTS:DTSID="{0A067221-E8CD-4041-A1BE-15367A30829E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="13322"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{43CEB774-B3F7-49B3-8CB0-448F08ACC003}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{1F920D2B-121E-4EB2-BC86-A2C327B43732}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Dim_Agencia_Dest"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."dim_agencia"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Connections[IDbConnection]"
+                  connectionManagerID="{33F52F40-6636-48A4-AC35-A1580AA17950}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-MLNL72A.DW_concepcion.briansp]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].Columns[agency_id]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="agency_id"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_agencia]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_id]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].Columns[agency_name]"
+                      cachedDataType="nText"
+                      cachedName="agency_name"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[nombre_agencia]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_name]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].Columns[agency_url]"
+                      cachedDataType="nText"
+                      cachedName="agency_url"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[url_agencia]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_url]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].Columns[agency_phone]"
+                      cachedDataType="nText"
+                      cachedName="agency_phone"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[telefono_agencia]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_phone]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].Columns[RutasID]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="RutasID"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[rutas_seguidas]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[RutasID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_agencia]"
+                      dataType="wstr"
+                      length="100"
+                      name="id_agencia" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[rutas_seguidas]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="rutas_seguidas" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[nombre_agencia]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="nombre_agencia" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[url_agencia]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="url_agencia" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[telefono_agencia]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="telefono_agencia" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Dim_Agencia_Ori"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT agency.agency_id, agency.agency_url, agency.agency_name, agency.agency_phone,RutasID
+	FROM agency INNER JOIN(SELECT 
+							routes.agency_id,
+							STRING_AGG(routes.route_id, ',') AS 'RutasID' FROM 
+							routes GROUP BY routes.agency_id)AS rutas ON agency.agency_id = rutas.agency_id</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."agency"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Connections[IDbConnection]"
+                  connectionManagerID="{DB9AFFB2-2796-4D33-9692-E89AA01BA935}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-MLNL72A.concepciondb.briansp]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[agency_id]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_id]"
+                      name="agency_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_url]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[agency_url]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_url]"
+                      name="agency_url"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_name]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[agency_name]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_name]"
+                      name="agency_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_phone]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[agency_phone]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_phone]"
+                      name="agency_phone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[RutasID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[RutasID]"
+                      length="4000"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].Columns[RutasID]"
+                      name="RutasID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[agency_id]"
+                      dataType="wstr"
+                      length="100"
+                      name="agency_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[agency_url]"
+                      dataType="nText"
+                      name="agency_url" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[agency_name]"
+                      dataType="nText"
+                      name="agency_name" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[agency_phone]"
+                      dataType="nText"
+                      name="agency_phone" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[RutasID]"
+                      dataType="wstr"
+                      length="4000"
+                      name="RutasID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET].Columns[agency_id]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET].Columns[agency_id]"
+                      name="agency_id" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET].Columns[agency_url]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET].Columns[agency_url]"
+                      name="agency_url" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET].Columns[agency_name]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET].Columns[agency_name]"
+                      name="agency_name" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET].Columns[agency_phone]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET].Columns[agency_phone]"
+                      name="agency_phone" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET].Columns[RutasID]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET].Columns[RutasID]"
+                      name="RutasID" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="DIM_Detenciones_Dest"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."dim_detenciones"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Connections[IDbConnection]"
+                  connectionManagerID="{33F52F40-6636-48A4-AC35-A1580AA17950}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-MLNL72A.DW_concepcion.briansp]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].Columns[trip_id]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="trip_id"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_viaje]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[trip_id]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].Columns[stop_sequence]"
+                      cachedDataType="i4"
+                      cachedName="stop_sequence"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[secuencia_en_viaje]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_sequence]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].Columns[stop_name]"
+                      cachedDataType="nText"
+                      cachedName="stop_name"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[nombre_parada]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_name]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].Columns[arrival_time]"
+                      cachedDataType="dbTime2"
+                      cachedName="arrival_time"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[hora_llegada]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[arrival_time]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].Columns[departure_time]"
+                      cachedDataType="dbTime2"
+                      cachedName="departure_time"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[hora_partida]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[departure_time]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].Columns[stop_lat]"
+                      cachedDataType="r8"
+                      cachedName="stop_lat"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[latitud]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_lat]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].Columns[stop_lon]"
+                      cachedDataType="r8"
+                      cachedName="stop_lon"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[longitud]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_lon]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].Columns[wheelchair_boarding]"
+                      cachedDataType="bool"
+                      cachedName="wheelchair_boarding"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[abordaje_silla_ruedas]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[wheelchair_boarding]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].Columns[stop_id]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="stop_id"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_parada]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_viaje]"
+                      dataType="wstr"
+                      length="100"
+                      name="id_viaje" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[secuencia_en_viaje]"
+                      dataType="i4"
+                      name="secuencia_en_viaje" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[nombre_parada]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="nombre_parada" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[hora_llegada]"
+                      dataType="dbTime2"
+                      name="hora_llegada" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[hora_partida]"
+                      dataType="dbTime2"
+                      name="hora_partida" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[latitud]"
+                      dataType="r8"
+                      name="latitud" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[longitud]"
+                      dataType="r8"
+                      name="longitud" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[abordaje_silla_ruedas]"
+                      dataType="bool"
+                      name="abordaje_silla_ruedas" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_parada]"
+                      dataType="wstr"
+                      length="100"
+                      name="id_parada" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Dim_detenciones_Ori"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        stop_times.stop_id, stop_times.stop_sequence, stops.stop_name, stop_times.arrival_time, stop_times.departure_time, stops.stop_lat, stops.stop_lon, stops.wheelchair_boarding, stop_times.trip_id
+FROM            stop_times INNER JOIN
+                         stops ON stop_times.stop_id = stops.stop_id</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Connections[IDbConnection]"
+                  connectionManagerID="{DB9AFFB2-2796-4D33-9692-E89AA01BA935}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-MLNL72A.concepciondb.briansp]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[stop_id]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_id]"
+                      name="stop_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_sequence]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[stop_sequence]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_sequence]"
+                      name="stop_sequence"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_name]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[stop_name]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_name]"
+                      name="stop_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[arrival_time]"
+                      dataType="dbTime2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[arrival_time]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[arrival_time]"
+                      name="arrival_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[departure_time]"
+                      dataType="dbTime2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[departure_time]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[departure_time]"
+                      name="departure_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_lat]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[stop_lat]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_lat]"
+                      name="stop_lat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_lon]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[stop_lon]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_lon]"
+                      name="stop_lon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[wheelchair_boarding]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[wheelchair_boarding]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[wheelchair_boarding]"
+                      name="wheelchair_boarding"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[trip_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[trip_id]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].Columns[trip_id]"
+                      name="trip_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[stop_id]"
+                      dataType="wstr"
+                      length="100"
+                      name="stop_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[stop_sequence]"
+                      dataType="i4"
+                      name="stop_sequence" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[stop_name]"
+                      dataType="nText"
+                      name="stop_name" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[arrival_time]"
+                      dataType="dbTime2"
+                      name="arrival_time" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[departure_time]"
+                      dataType="dbTime2"
+                      name="departure_time" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[stop_lat]"
+                      dataType="r8"
+                      name="stop_lat" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[stop_lon]"
+                      dataType="r8"
+                      name="stop_lon" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[wheelchair_boarding]"
+                      dataType="bool"
+                      name="wheelchair_boarding" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[trip_id]"
+                      dataType="wstr"
+                      length="100"
+                      name="trip_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[stop_id]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[stop_id]"
+                      name="stop_id" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[stop_sequence]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[stop_sequence]"
+                      name="stop_sequence" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[stop_name]"
+                      dataType="nText"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[stop_name]"
+                      name="stop_name" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[arrival_time]"
+                      dataType="dbTime2"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[arrival_time]"
+                      name="arrival_time" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[departure_time]"
+                      dataType="dbTime2"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[departure_time]"
+                      name="departure_time" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[stop_lat]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[stop_lat]"
+                      name="stop_lat" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[stop_lon]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[stop_lon]"
+                      name="stop_lon" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[wheelchair_boarding]"
+                      dataType="bool"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[wheelchair_boarding]"
+                      name="wheelchair_boarding" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[trip_id]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[trip_id]"
+                      name="trip_id" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Dim_Servicio_Dest"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."dim_servicio"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Connections[IDbConnection]"
+                  connectionManagerID="{33F52F40-6636-48A4-AC35-A1580AA17950}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-MLNL72A.DW_concepcion.briansp]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].Columns[service_id]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="service_id"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_servicio]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[service_id]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].Columns[start_date]"
+                      cachedDataType="dbDate"
+                      cachedName="start_date"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[inicio_servicio]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[start_date]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].Columns[end_date]"
+                      cachedDataType="dbDate"
+                      cachedName="end_date"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[termino_servicio]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[end_date]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].Columns[Fechas]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Fechas"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[dias_excepcion]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[Fechas]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].Columns[Excepciones]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Excepciones"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[tipo_excepcion]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[Excepciones]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].Columns[monday]"
+                      cachedDataType="bool"
+                      cachedName="monday"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[Lunes]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[monday]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].Columns[tuesday]"
+                      cachedDataType="bool"
+                      cachedName="tuesday"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[Martes]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[tuesday]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].Columns[wednesday]"
+                      cachedDataType="bool"
+                      cachedName="wednesday"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[Miercoles]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[wednesday]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].Columns[thursday]"
+                      cachedDataType="bool"
+                      cachedName="thursday"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[Jueves]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[thursday]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].Columns[friday]"
+                      cachedDataType="bool"
+                      cachedName="friday"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[Viernes]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[friday]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].Columns[saturday]"
+                      cachedDataType="bool"
+                      cachedName="saturday"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sabado]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[saturday]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].Columns[sunday]"
+                      cachedDataType="bool"
+                      cachedName="sunday"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[Domingo]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[sunday]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_servicio]"
+                      dataType="wstr"
+                      length="100"
+                      name="id_servicio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[inicio_servicio]"
+                      dataType="dbTimeStamp"
+                      name="inicio_servicio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[termino_servicio]"
+                      dataType="dbTimeStamp"
+                      name="termino_servicio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[dias_excepcion]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="dias_excepcion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[tipo_excepcion]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="tipo_excepcion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[Lunes]"
+                      dataType="bool"
+                      name="Lunes" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[Martes]"
+                      dataType="bool"
+                      name="Martes" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[Miercoles]"
+                      dataType="bool"
+                      name="Miercoles" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[Jueves]"
+                      dataType="bool"
+                      name="Jueves" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[Viernes]"
+                      dataType="bool"
+                      name="Viernes" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sabado]"
+                      dataType="bool"
+                      name="Sabado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[Domingo]"
+                      dataType="bool"
+                      name="Domingo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Dim_Servicio_Ori"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT calendar.*, Fechas, Excepciones FROM calendar
+	INNER JOIN (SELECT
+					calendar_dates.service_id,
+					STRING_AGG(calendar_dates.date, ',') AS 'Fechas',
+					STRING_AGG(calendar_dates.exception_type, ',') AS 'Excepciones' FROM
+					calendar_dates GROUP BY calendar_dates.service_id) AS dates ON calendar.service_id=dates.service_id</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Connections[IDbConnection]"
+                  connectionManagerID="{DB9AFFB2-2796-4D33-9692-E89AA01BA935}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-MLNL72A.concepciondb.briansp]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[service_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[service_id]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[service_id]"
+                      name="service_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[monday]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[monday]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[monday]"
+                      name="monday"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[tuesday]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[tuesday]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[tuesday]"
+                      name="tuesday"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[wednesday]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[wednesday]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[wednesday]"
+                      name="wednesday"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[thursday]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[thursday]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[thursday]"
+                      name="thursday"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[friday]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[friday]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[friday]"
+                      name="friday"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[saturday]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[saturday]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[saturday]"
+                      name="saturday"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[sunday]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[sunday]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[sunday]"
+                      name="sunday"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[start_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[start_date]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[start_date]"
+                      name="start_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[end_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[end_date]"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[end_date]"
+                      name="end_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[Fechas]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[Fechas]"
+                      length="4000"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[Fechas]"
+                      name="Fechas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[Excepciones]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[Excepciones]"
+                      length="4000"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].Columns[Excepciones]"
+                      name="Excepciones"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[service_id]"
+                      dataType="wstr"
+                      length="100"
+                      name="service_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[monday]"
+                      dataType="bool"
+                      name="monday" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[tuesday]"
+                      dataType="bool"
+                      name="tuesday" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[wednesday]"
+                      dataType="bool"
+                      name="wednesday" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[thursday]"
+                      dataType="bool"
+                      name="thursday" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[friday]"
+                      dataType="bool"
+                      name="friday" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[saturday]"
+                      dataType="bool"
+                      name="saturday" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[sunday]"
+                      dataType="bool"
+                      name="sunday" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[start_date]"
+                      dataType="dbDate"
+                      name="start_date" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[end_date]"
+                      dataType="dbDate"
+                      name="end_date" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[Fechas]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Fechas" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[Excepciones]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Excepciones" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[service_id]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[service_id]"
+                      name="service_id" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[monday]"
+                      dataType="bool"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[monday]"
+                      name="monday" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[tuesday]"
+                      dataType="bool"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[tuesday]"
+                      name="tuesday" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[wednesday]"
+                      dataType="bool"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[wednesday]"
+                      name="wednesday" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[thursday]"
+                      dataType="bool"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[thursday]"
+                      name="thursday" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[friday]"
+                      dataType="bool"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[friday]"
+                      name="friday" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[saturday]"
+                      dataType="bool"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[saturday]"
+                      name="saturday" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[sunday]"
+                      dataType="bool"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[sunday]"
+                      name="sunday" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[start_date]"
+                      dataType="dbDate"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[start_date]"
+                      name="start_date" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[end_date]"
+                      dataType="dbDate"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[end_date]"
+                      name="end_date" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[Fechas]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[Fechas]"
+                      name="Fechas" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[Excepciones]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[Excepciones]"
+                      name="Excepciones" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Fact_Viaje_Dest"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."fact_viaje"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Connections[IDbConnection]"
+                  connectionManagerID="{33F52F40-6636-48A4-AC35-A1580AA17950}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-MLNL72A.DW_concepcion.briansp]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].Columns[trip_id]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="trip_id"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_viaje]"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[trip_id]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].Columns[agency_id]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="agency_id"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_agencia]"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_id]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].Columns[stop_id]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="stop_id"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_detencion]"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_id]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].Columns[service_id]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="service_id"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_servicio]"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[service_id]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].Columns[stop_sequence]"
+                      cachedDataType="i4"
+                      cachedName="stop_sequence"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_secuencia_detencion]"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_sequence]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_viaje]"
+                      dataType="wstr"
+                      length="100"
+                      name="id_viaje" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_servicio]"
+                      dataType="wstr"
+                      length="100"
+                      name="id_servicio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_agencia]"
+                      dataType="wstr"
+                      length="100"
+                      name="id_agencia" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_detencion]"
+                      dataType="wstr"
+                      length="100"
+                      name="id_detencion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[fecha_viaje]"
+                      dataType="dbTimeStamp"
+                      name="fecha_viaje" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[cantidad_pasajeros]"
+                      dataType="i4"
+                      name="cantidad_pasajeros" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_secuencia_detencion]"
+                      dataType="i4"
+                      name="id_secuencia_detencion" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Fact_Viaje_Ori"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        agency.agency_id, trips.trip_id, stop_times.stop_sequence, stop_times.stop_id, trips.service_id
+FROM            agency INNER JOIN
+                         routes ON agency.agency_id = routes.agency_id INNER JOIN
+                         stops INNER JOIN
+                         stop_times ON stops.stop_id = stop_times.stop_id INNER JOIN
+                         trips ON stop_times.trip_id = trips.trip_id INNER JOIN
+                         calendar ON trips.service_id = calendar.service_id ON routes.route_id = trips.route_id</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Connections[IDbConnection]"
+                  connectionManagerID="{DB9AFFB2-2796-4D33-9692-E89AA01BA935}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-MLNL72A.concepciondb.briansp]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[agency_id]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[agency_id]"
+                      name="agency_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[trip_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[trip_id]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[trip_id]"
+                      name="trip_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_sequence]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[stop_sequence]"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_sequence]"
+                      name="stop_sequence"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[stop_id]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[stop_id]"
+                      name="stop_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[service_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[service_id]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].Columns[service_id]"
+                      name="service_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[agency_id]"
+                      dataType="wstr"
+                      length="100"
+                      name="agency_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[trip_id]"
+                      dataType="wstr"
+                      length="100"
+                      name="trip_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[stop_sequence]"
+                      dataType="i4"
+                      name="stop_sequence" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[stop_id]"
+                      dataType="wstr"
+                      length="100"
+                      name="stop_id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET].ExternalColumns[service_id]"
+                      dataType="wstr"
+                      length="100"
+                      name="service_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET].Columns[agency_id]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET].Columns[agency_id]"
+                      name="agency_id" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET].Columns[trip_id]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET].Columns[trip_id]"
+                      name="trip_id" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET].Columns[stop_sequence]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET].Columns[stop_sequence]"
+                      name="stop_sequence" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET].Columns[stop_id]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET].Columns[stop_id]"
+                      name="stop_id" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET].Columns[service_id]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET].Columns[service_id]"
+                      name="service_id" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET]"
+              endId="Package\Tarea Flujo de datos\Dim_Agencia_Dest.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Tarea Flujo de datos\Dim_Agencia_Ori.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET1]"
+              endId="Package\Tarea Flujo de datos\Dim_Servicio_Dest.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Tarea Flujo de datos\Dim_Servicio_Ori.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET2]"
+              endId="Package\Tarea Flujo de datos\Fact_Viaje_Dest.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Tarea Flujo de datos\Fact_Viaje_Ori.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET3]"
+              endId="Package\Tarea Flujo de datos\DIM_Detenciones_Dest.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Tarea Flujo de datos\Dim_detenciones_Ori.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="263.5,63.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Tarea Flujo de datos\DIM_Detenciones_Dest"
+          TopLeft="561.111111111111,153.333333333333" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Tarea Flujo de datos\Fact_Viaje_Ori"
+          TopLeft="262.222222222222,270" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Tarea Flujo de datos\Fact_Viaje_Dest"
+          TopLeft="500,271.111111111111" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Tarea Flujo de datos\Dim_Servicio_Ori"
+          TopLeft="348.888888888889,52.2222222222222" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Tarea Flujo de datos\Dim_Servicio_Dest"
+          TopLeft="350,157.777777777778" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Tarea Flujo de datos\Dim_detenciones_Ori"
+          TopLeft="564.444444444445,50" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Tarea Flujo de datos\Dim_Agencia_Ori"
+          TopLeft="91.5555555555556,55.2222222222222" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Tarea Flujo de datos\Dim_Agencia_Dest"
+          TopLeft="82.3333333333333,163" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET3]"
+          TopLeft="657.777777777778,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.333333333333"
+              Start="0,0"
+              End="0,53.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET2]"
+          TopLeft="414.222222222222,291.555555555556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.7777777777779,0"
+              Start="0,0"
+              End="78.2777777777779,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="78.2777777777779,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET1]"
+          TopLeft="433.944444444444,94.2222222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63.5555555555556"
+              Start="0,0"
+              End="0,56.0555555555556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.0555555555556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de ADO NET]"
+          TopLeft="171.444444444444,97.2222222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.7777777777777"
+              Start="0,0"
+              End="0,58.2777777777777">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.2777777777777" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\DIM_Detenciones_Dest">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Fact_Viaje_Ori">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Fact_Viaje_Dest">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Dim_Servicio_Ori">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Dim_Servicio_Dest">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Dim_detenciones_Ori">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Dim_Agencia_Ori">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Dim_Agencia_Dest">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
